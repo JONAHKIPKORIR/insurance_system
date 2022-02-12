@@ -1,0 +1,356 @@
+
+
+.home-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.msg{
+    color: red;
+}
+.success{
+    color:rgb(79, 190, 15);
+}
+
+/*top.inc.php*/
+.header{
+    top: 0;
+    right: 50%;
+    background-color: rgb(111, 124, 103);
+
+}
+
+/*end of top.inc.php*/ 
+
+
+/*footer.inc.php*/
+.footer{
+    margin-top: 200px;
+    
+    background-color: rgb(63, 90, 95);
+
+}
+
+
+/*end of footer.inc.php*/ 
+
+
+
+:root{
+    --body-color:#E5E7E8;
+    --menu-bgcolor:#800000;
+    --text-color-menu:rgb(93, 93, 93);
+    --text-bgcolor-hover:rgba(204, 191, 191, 0.582);
+    --text-bgcolor-light:rgb(165, 162, 162);
+    --border-bottom:rgb(197, 180, 180);
+}
+*{
+    margin: 0;
+    padding: 0;box-sizing: border-box; font-family: '';
+}
+body{
+    width: 100%;
+    background: var(--body-color);
+    position: relative;
+    display: flex;
+}
+#menu{
+    background: var(--menu-bgcolor);
+    width: 300px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+#menu .logo{
+    color:#fff;
+    display: flex;
+    align-items: center;
+    padding: 30px 0 0 30px;
+}
+#menu .logo img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;;
+}
+#menu .items{
+    margin-top: 40px;
+    
+}
+
+#menu .items li{
+    list-style: none;
+    padding: 15px 0;  
+    transition: 0.2s ease;
+}
+#menu .items li:hover{
+    background: var(--text-bgcolor-hover);
+    color: #fff;
+    cursor: pointer;
+    
+}
+
+#menu .items li:nth-child(1){
+    border-left: 5px solid#fff;
+    
+    
+}
+#menu .items li i{
+    color:var(--text-color-menu);
+    text-align: center;
+    font-size:14px 0;
+    line-height: 30px;
+    margin: 0 10px 0 25px;
+}
+#menu .items li i:hover,
+#menu .items li a:hover{
+    color: #fff;
+}
+
+#menu .items li a{
+    text-decoration: none;
+    color:var(--text-color-menu);
+    font-weight: 300px;
+    transition: 0.2s ease;
+}
+
+#interface{
+    width: calc(100% - 300px);
+    margin-left: 300px;
+    position: relative;
+}
+#interface .navigation{
+  
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; 
+    background: #fff;
+    padding: 15px 30px;
+    border-bottom: 4px solid var(--menu-bgcolor);
+    position: fixed;
+    width: calc(100% - 300px);
+}
+.n1{
+    display: flex;
+    align-items: center; justify-content: flex-start;
+}
+#menu-btn{
+    margin-right: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #2b2b2b;
+    display: none;
+}
+#interface .navigation .search{
+    display: flex; align-items: center; justify-content: center;  padding: 10px 14px;
+    border:1px solid silver; border-radius: 5px;
+}
+#interface .navigation .search i{
+    margin-right: 14px;
+}
+#interface .navigation .search input{
+    outline: none; border:none;font-size: 14px;
+}
+
+
+#interface .navigation .profile {
+    display: flex; align-items: center; justify-content: center;
+}
+
+
+#interface .navigation .profile i{
+    margin-right: 20px;
+    font-size: 20px;font-weight: 400;
+}
+#interface .navigation .profile img{
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#interface .i_name {
+    color:var(--text-color-menu);
+    font-size: 25px; 
+    padding : 20px 20px 0 20px ;
+    font-weight: 700;
+    margin-top: 70px;
+}
+
+#interface .values{
+    padding : 20px 20px 0 20px ;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+    
+  
+}
+#interface .values .val-box{
+    background: #fff;
+    width: 235px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 5px;
+    margin-top:20px
+    
+}
+#interface .values .val-box i{
+    margin-right: 10px;
+   
+    border:1px solid var(--text-color-menu);
+    width: 50px; height: 50px; line-height: 50px; border-radius: 50%; text-align: center;
+}
+#interface .values .val-box:nth-child(1) i{
+    background: var(--menu-bgcolor);
+}
+#interface .values .val-box:nth-child(2) i{
+    background: blue;
+}
+#interface .values .val-box:nth-child(3) i{
+    background: pink
+}
+#interface .values .val-box:nth-child(4) i{
+    background: green;
+}
+#interface .values .val-box:nth-child(5) i{
+    background: var(--menu-bgcolor);
+}
+#interface .values .val-box:nth-child(6) i{
+    background: grey;
+}
+#interface .values .val-box:nth-child(7) i{
+    background:brown;
+}
+#interface .values .val-box:nth-child(8) i{
+    background: purple;
+}
+#interface .values .val-box h2{
+    font-size: 20px;
+    font-weight: 600;
+}
+#interface .values .val-box span{
+    color:var(--text-color-menu);
+    font-size: 15px;
+}
+
+
+.board{
+    width: 94%;
+    overflow: auto;
+    background: #fff;
+    margin-left: 30px;
+    margin-right: 0;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border-radius: 10px;
+   
+}
+.board img{
+    width:40px; height:40px;
+    object-fit: cover; border-radius: 50%;
+}
+.board h5{
+    color:var(--text-color-menu);
+    font-size: 14px;
+}
+.board p{
+    color:var(--text-color-menu);
+    font-size: 13px;
+    color: var(--text-bgcolor-light);
+}
+.board .people{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: start;
+}
+.board .people img{
+ margin-right: 5px;
+}
+table{
+    border-collapse: collapse;
+}
+tr{
+    border-bottom: 1px solid var(--border-bottom);
+}
+thead td{
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    background:rgb(250, 244, 244);
+    padding:15px;
+    text-align: start;
+}
+
+tbody tr td{
+    padding: 10px 15px;
+}
+
+tbody tr .people-status p{
+    background: rgb(100, 173, 100);
+    padding: 5px 10px;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+}
+.edit a{
+    text-decoration:green;
+    font-size: 14px;
+    font-weight: 600;
+
+}
+
+
+
+
+
+@media (max-width:769px) {
+    #menu {
+        
+        width: 270px;
+        position: fixed;
+        
+        left: -270px;
+        
+    }
+    #menu.active{
+        left: 0px;
+    }
+    #menu-btn{
+        display: initial;
+
+    }
+    
+    #interface {       
+        width: 100%;
+        margin-left: 0;
+    }
+
+    #interface .navigation {
+        
+        width:100%;
+    }
+    #interface .values {
+        padding: 20px 20px 0 20px;
+        justify-content: flex-start;
+    }
+    #interface .values .val-box {
+       
+        padding: 16px 20px;
+
+        margin:10px 20px 10px 0;
+    }
+    .board{
+        width: 92%;
+        overflow-x: auto;
+        padding: 0;
+    }
+    table{
+        border-collapse: collapse;
+        width: 100%;
+    }
+}
