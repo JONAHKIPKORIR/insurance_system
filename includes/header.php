@@ -48,6 +48,7 @@
                         <li><a href="#">Contact Us</a></li>
                         <li><a href="login.php">Client </a></li>
                         <li><a href="login.php">Admin</a></li>
+                        <li><a href="login.php">Tests test</a></li>
                     </ul>
                     <div class="menu">
                         <img src="icons/menu.jpg" alt="" style="width: 20px; height:20px;">
