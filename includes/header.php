@@ -36,7 +36,7 @@
    </style>
 </head>
 <body>
-    <div class="interface">
+    <div class="main-container">
             <div class="home-header">
                 <div class="logo">
                     <img src="" alt="">

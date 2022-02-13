@@ -51,11 +51,9 @@
         #menu {
             background: var(--menu-bgcolor);
             width: 300px;
-            
             position: fixed;
-            
-                    
-            
+            top: 0;
+            float: left;
         }
         .items li {
             padding: 15px;

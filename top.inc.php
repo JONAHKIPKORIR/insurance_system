@@ -33,7 +33,7 @@ if (!isset($_SESSION['ROLE'])) {
     </style>
 </head>
 <body>
-    
+   <div class="main-container">
 <section class="interface">
 
     <div class="navigation">
@@ -115,4 +115,7 @@ if (!isset($_SESSION['ROLE'])) {
 
     </div>
 </section>
+
+
+   </div>
 
