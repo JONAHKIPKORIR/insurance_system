@@ -2,7 +2,7 @@
 
  :root{
     --body-color:#E5E7E8;
-    --menu-bgcolor:#800000;
+    --menu-bgcolor:#7e2828;
     --text-color-menu:rgb(93, 93, 93);
     --text-bgcolor-hover:rgba(204, 191, 191, 0.582);
     --text-bgcolor-light:rgb(165, 162, 162);
@@ -17,7 +17,8 @@
         body{
             width: 100%;
             background: var(--body-color);
-            position: relative;
+            float: left;
+            
            
         }
         a.editbtn {
@@ -48,22 +49,39 @@
             justify-content: space-between;
             flex-wrap: wrap;
         }
+        .main-container {
+            background:rgb(184, 197, 197);
+            width: 100%;
+        }
+        
         #menu {
-            background: var(--menu-bgcolor);
-            width: 300px;
-            position: fixed;
-            top: 0;
+            background: cadetblue;
+            width: 300px;         
             float: left;
+            
+            
+           
+        }
+        .items {
+            background: #7e2828;
+            height: 100vh;
+            
         }
         .items li {
             padding: 15px;
             list-style: none;
+            font-size: 20px;
+            color: #fff;         
+        }
+        .items li:hover {
+            background: cadetblue;
+            
         }
         .items li a {
             text-decoration: none;
             cursor: pointer;
-            color: cadetblue;
             font-size: 20px;
+            color: #fff; 
         }
         .interface {
             width: calc(100% - 300px);
@@ -75,7 +93,7 @@
             align-items: center;
             justify-content: space-between;
             border-bottom: 1px solid #fff;
-            box-shadow: 0 4px 5px cadetblue;
+            box-shadow: 0 4px 5px var(--menu-bgcolor);
             
             
             
@@ -84,6 +102,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            
         }
         .top_navigation img {
             margin-right: 10px;

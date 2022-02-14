@@ -163,5 +163,5 @@ if (isset($_GET['id'])) {
                         </script>
 
 <?php
-require('footer.inc.php')
+require('includes/footer.inc.php')
 ?>

@@ -1,0 +1,107 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+img{
+    width: 100%;
+}
+a{
+    text-decoration: none;
+}
+
+.container{
+    float: left;
+    width: 100%;
+    background-color: #ccc;
+}
+
+header{ float: left;
+   padding: 10px;
+   width: 100%;
+   background-color: #fff;
+}
+.logo{ float: left;
+    width: 20%;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+.logo img{
+    max-width: 100px;
+}
+
+.nav{
+    float: right;
+    width: 79%;
+}
+
+.nav ul{
+    width: 100%;
+    display: block;
+    text-align: right;
+    padding: 0;
+    margin: 0;
+}
+
+.nav ul li{
+    display: inline-block;
+    padding: 10px 20px
+}
+.nav ul li a{
+    color: #202020;
+    font-size: 14px;
+}
+.wrapper{
+    float: left;
+    width: 100%;
+    background-color: #ccc;
+    padding-top: 20px;
+}
+
+.sidebar{
+    width: 20%;
+    float: left;
+}
+.sidebar ul{
+    display: block;
+    list-style-position: unset;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li{
+    background-color: #202020;
+    text-align: left;
+    padding: 20px;
+    margin-bottom: 10px;
+    list-style: none;
+    display: block;
+}
+
+.sidebar ul li a{
+    color: #fff;
+}
+
+.card-container{
+    width: 79%;
+    float: right;
+    
+}
+
+.card{
+    width: 98%;
+    background-color: red;
+    padding: 2%;
+}
+
+footer{ background-color: #202020;
+    width: 100%;
+    float: left;
+    color: #fff;
+    font-size: 14px;
+}
+.footer-container{
+    padding: 30px;
+}

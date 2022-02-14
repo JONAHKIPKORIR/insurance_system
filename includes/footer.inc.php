@@ -1,13 +1,8 @@
 <style>
     footer{
-       position: relative;
-        bottom: 0;
-        left: 0;right: 0;
-        background: #111;
-        height: auto;
-        width: auto;
-        color: #fff;
-        padding-top: 40px;
+      width: 100%;
+      background: cadetblue;
+      float: left;
         
     }
     .footer-content {
