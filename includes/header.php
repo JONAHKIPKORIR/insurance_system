@@ -19,6 +19,10 @@
         }
         .logo{
             display: flex;
+            color: cadetblue;
+        }
+        .logo:hover{
+            color:brown
         }
         ul{
             display: flex;
@@ -40,7 +44,7 @@
             <div class="home-header">
                 <div class="logo">
                     <img src="" alt="">
-                    <h3>Insurance Manangemnt Sys</h3>
+                    <h3>Jplus Insurance Manangemnt Sys</h3>
                 </div>
                 
                     <ul>

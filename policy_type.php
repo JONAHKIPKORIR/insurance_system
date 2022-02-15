@@ -95,7 +95,7 @@ $res=mysqli_query($con,'SELECT * FROM policy_type order by id desc');
                                             <td><?php echo $row['policy_type'];  ?></td>
                                             <td>
                                                 <a class="editbtn" href="add_policy_type.php?id=<?php echo $row['id'];  ?> "> Edit</a> </td>
-                                               <td> <a class="deletebtn" href="policy_type.php?id=<?php echo $row['id'];  ?> &type=delete">Delete</a>
+                                               <td> <a class="deletebtn"  href="policy_type.php?id=<?php echo $row['id'];  ?> &type=delete" >Delete</a>
                                             </td>
                                         </tr>
                                         <?php

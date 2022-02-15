@@ -54,6 +54,6 @@ if (isset($_POST['policy_type'])) {
 
 <?php  
 
-require('footer.inc.php');  
+require('includes/footer.inc.php');  
 
 ?>

@@ -21,6 +21,40 @@
             
            
         }
+
+        /*home part*/
+        .home-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 5px cadetblue;
+            padding: 15px;
+            text-transform: uppercase;
+            
+        }
+        .logo{
+            display: flex;
+            color: cadetblue;
+        }
+        .logo:hover{
+            color:brown
+        }
+        ul{
+            display: flex;
+            
+        }
+        ul li{
+            list-style: none;
+            margin-right: 20px;
+        }
+        ul li a{
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 15px;
+        }
+
+        /*end of home part*/
         a.editbtn {
             text-decoration: none;
             padding: 10px 15px;
