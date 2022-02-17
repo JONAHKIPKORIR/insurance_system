@@ -25,7 +25,7 @@ if ($_SESSION['ROLE']==1) {
     //$sql="SELECT * FROM policy_tbl order by id desc";
 }else {
     $eid=$_SESSION['USER_ID'];
-    $sql="SELECT policy_tbl.*, users.name,category.category,policy_type.policy_type,users.id as eid FROM policy_tbl,policy_type,category, users where policy_tbl.user_id='$eid'   and policy_tbl.user_id=users.id and policy_tbl.policy_type=policy_type.id and policy_tbl.category_id=category.id order by policy_tbl.id desc";
+    $sql="SELECT policy_tbl.*,category.category,category.id, users.name,policy_type.policy_type,users.id as eid FROM policy_tbl,category,policy_type, users where ( `policy_tbl`.`user_id`=$eid )  and (policy_tbl.user_id='$eid' and policy_tbl.user_id=users.id) and policy_tbl.policy_type=policy_type.id and policy_tbl.category_id=category.id  order by policy_tbl.id desc";
 }
 $res=mysqli_query($con,$sql);
 

@@ -226,4 +226,3 @@ $res=mysqli_query($con,'SELECT * FROM category order by id desc');
 <?php
 require('includes/footer.inc.php')
 ?>
-*/

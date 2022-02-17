@@ -46,8 +46,8 @@ if (isset($_POST['submit'])) {
                     <select name="policy_type" id="policy_type">
                     <option value="">Select Policy Type</option>
                         <?php   
-                        $category=$row['category'];
-                        $res=mysqli_query($con,"select policy_type.policy_type,category.category from policy_type,category where policy_type.category_id=category.id  order by policy_type desc");
+                        
+                        $res=mysqli_query($con,"select * from policy_type order by policy_type desc");
                         while ($row=mysqli_fetch_assoc($res)) { 
                             echo "<option value=".$row['id'].">".$row['policy_type']."</option>";
                             } ?>

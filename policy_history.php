@@ -107,7 +107,7 @@ $res=mysqli_query($con,$sql);
 </section>
             
                 <div class="table-heads">
-                        <h3 class="table-title">Policy</h3>
+                        <h3 class="table-title">History of Policy Applied by <?php echo "[".$_SESSION['USERNAME']."]"; ?></h3>
                         <h4 class="table-link"><a href="add_policy.php">Apply New Policy</a></h4>
                 </div>
 
