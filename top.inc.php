@@ -1,5 +1,6 @@
 <?php
 session_start();
+$page_title="Insurance Sys";
 require 'db.inc.php';
 
 if (!isset($_SESSION['ROLE'])) {
@@ -18,7 +19,7 @@ if (!isset($_SESSION['ROLE'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title><?php echo $page_title;  ?></title>
     <link rel="stylesheet" href="print.css" media="print">
     <link rel="stylesheet" type="text/css" href="style.css" media="screen">
 
