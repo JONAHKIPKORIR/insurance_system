@@ -4,6 +4,7 @@ require ('db.inc.php');
 $msg="";
 $success="";
 if (isset($_POST['email'])  && isset($_POST['password'])) {
+    
     $email=mysqli_real_escape_string($con,$_POST['email']);
     $pass=mysqli_real_escape_string($con,$_POST['password']);
 
@@ -24,8 +25,11 @@ if (isset($_POST['email'])  && isset($_POST['password'])) {
         //$success='Succesful ';
     }else{
         $msg="Wrong Email/Password /CredentialsNot in Database";
+        
     }
 }
+
+
 
 ?>
 <!DOCTYPE html>
@@ -137,9 +141,11 @@ if (isset($_POST['email'])  && isset($_POST['password'])) {
 
                 <div class="form-group">
                     <label>Password</label><br>
-                    <input type="password" name="password" id="showPass" class="form-control" placeholder="password" required>
+                   <!-- <input type="password" name="password" id="showPass" class="form-control" placeholder="password" required>  -->
+
+                    <input type="password" name="password" id="password" class="form-control" placeholder="password" required>
                     <br>
-                    <span>Show Password <input type="checkbox" onclick="showHidePassword()"></span>
+                    <span>Show Password <input type="checkbox" onclick="showOrHidePass()"/></span>
                 </div>
 
 
@@ -147,13 +153,38 @@ if (isset($_POST['email'])  && isset($_POST['password'])) {
                 <div class="msg"><?php echo $msg ?></div>
             </form>
         </div>
-            <p class="linksignin">Dont Have an account yet? <a class="btnsignin" href="signup.php">Sign Up</a></p>
-            
+            <?php
+             if ($_SESSION['ROLE']!==1) { ?>
+               
+            <p class="linksignin">Dont Have an account yet? <a class="btnsignin" href="register.php">Sign Up</a></p>
+            <?php }?>
         </div>
     </div>
 
-    <script src="js/script.js" type="text/javascript">
+    <script src="" type="text/javascript">
        
+
+        function showOrHidePass() {
+            var state=false;
+
+            if (state) {
+                document.getElementById("password").setAttribute("type","password");
+                state=false;
+            }else{
+                document.getElementById("password").setAttribute("type","text");
+                state=true;
+            }
+        }
+            /*show password functionality */
+                    /*function showHidePassword() {
+                        let show=document.querySelectorAll('showPass');
+                        if (show.type=='password') {
+                            show.type='text';
+                        } else {
+                            show.type='password';
+                        }
+                    }
+                    */
     </script>
 </body>
 </html>

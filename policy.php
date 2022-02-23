@@ -21,11 +21,11 @@ if (isset($_GET['type']) && $_GET['type']=='update' && isset($_GET['id'])) {
 
 //to select dat from db
 if ($_SESSION['ROLE']==1) {
-    $sql="SELECT policy_tbl.*, users.name,category.id,category.category,policy_type.policy_type,users.id as eid FROM policy_tbl,category,policy_type, users where  policy_tbl.user_id=users.id and policy_tbl.policy_type=policy_type.id  and policy_tbl.category_id=category.id order by policy_tbl.id desc";
+    $sql="SELECT policy_tbl.*, users.name,category.id,category.category,policy_type.policy_type,users.id  FROM policy_tbl,category,policy_type, users where  policy_tbl.user_id=users.id and policy_tbl.policy_type=policy_type.id  and policy_tbl.category_id=category.id order by policy_tbl.id desc";
     //$sql="SELECT * FROM policy_tbl order by id desc";
 }else {
     $eid=$_SESSION['USER_ID'];
-    $sql="SELECT policy_tbl.*,category.category,category.id, users.name,policy_type.policy_type,users.id as eid FROM policy_tbl,category,policy_type, users where ( `policy_tbl`.`user_id`=$eid )  and (policy_tbl.user_id='$eid' and policy_tbl.user_id=users.id) and policy_tbl.policy_type=policy_type.id and policy_tbl.category_id=category.id  order by policy_tbl.id desc";
+    $sql="SELECT policy_tbl.*, users.name,category.id,category.category,policy_type.policy_type,users.id  FROM policy_tbl,category,policy_type, users where ( policy_tbl.user_id=$eid )   and policy_tbl.user_id=users.id and policy_tbl.policy_type=policy_type.id and policy_tbl.category_id=category.id  order by policy_tbl.id desc";
 }
 $res=mysqli_query($con,$sql);
 
@@ -139,7 +139,7 @@ $res=mysqli_query($con,$sql);
                                     <?php
                                          //search functionality
                                          if (isset($_POST['search']) && !empty($_POST['search'])) {
-                                            $res=mysqli_query($con,"SELECT policy_tbl.*,users.id,users.name  FROM policy_tbl,users  WHERE CONCAT(policy_tbl.policy_type,users.name)  LIKE '%$_POST[search]%'  AND policy_tbl.user_id=users.id ");
+                                            $res=mysqli_query($con,"SELECT policy_tbl.*,users.id,users.name,category.category  FROM policy_tbl,users,category,policy_type  WHERE CONCAT(policy_tbl.policy_type,users.name)  LIKE '%$_POST[search]%'  AND policy_tbl.user_id=$_SESSION[USER_ID] ");
                                             $count=mysqli_num_rows($res);
                                             if ($count== 0 && !empty($_POST['search'])) {?>
                                                 

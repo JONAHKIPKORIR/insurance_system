@@ -42,7 +42,7 @@ $res=mysqli_query($con,$sql);
 <section class="boxes">
     <div class="box">
         <div class="box-content" style=""> 
-            <a href="policy.php">Ap</a>
+            
              <img  class="img" src="images/me.png" alt="" >
              <?php
              //to select dat from db where policy_status is pending

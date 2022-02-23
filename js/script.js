@@ -4,7 +4,7 @@
 
 /*show password functionality */
 function showHidePassword() {
-    let show=document.querySelectorAll('#showPass');
+    let show=document.querySelectorAll('showPass');
     if (show.type=='password') {
         show.type='text';
     } else {
