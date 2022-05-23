@@ -4,7 +4,10 @@
 $success="";
 $msg="";
 
-require 'top.inc.php';
+if (isset($_SESSION['ROLE'])) {
+    require 'top.inc.php';
+}
+
 
 if (isset($_POST['re_password'])) {
     $new_pass=$_POST['new_pass'];
@@ -137,19 +140,23 @@ if (isset($_POST['re_password'])) {
                 </div>
                 <div>
                 <br>
-                    <span>Show Password <input type="checkbox" onclick="showHidePassword()"></span>
+                    <!--
+                        <span>Show Password <input type="checkbox" onclick="showHidePassword()"></span>
+                    -->
                 </div>
 
                 <button type="submit" name="re_password" class="btnsignup  ">Update Pass</button><br>
+                <p class="linksignin"><a class="btnsignin" href="login.php">Sign In</a></p>
                 <div class="msg"><?php echo $msg ?></div>
             </form>
-        </div>
-            <p class="linksignin">Dont Have an account yet? <a class="btnsignin" href="signup.php">Sign Up</a></p>
+          </div>
+    
             
         </div>
     </div>
 <script src="js/script.js" type="text/javascript"></script>
     <?php
+    
     require 'includes/footer.inc.php';
 
     ?>

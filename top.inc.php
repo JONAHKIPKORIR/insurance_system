@@ -3,11 +3,11 @@ session_start();
 $page_title="Insurance Sys";
 require 'db.inc.php';
 
-if (!isset($_SESSION['ROLE'])) {
+/*if (!isset($_SESSION['ROLE'])) {
    header('location:home.php');
    die();
 }
-
+*/
 
 
 
@@ -54,7 +54,7 @@ if (!isset($_SESSION['ROLE'])) {
         <div class="profile">
             <ul>
                 <li>
-                    <h2 class="welcome">Welcome <?php echo $_SESSION['USERNAME'].'' ?></h2>
+                    <h2 class="welcome">Welcome <?php echo $_SESSION['USERNAME'] ?></h2>
                         <!--<h3><?php echo $_SESSION['ROLE'] ?></h3>-->
                     </li>
                     <li> 

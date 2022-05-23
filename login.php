@@ -153,11 +153,12 @@ if (isset($_POST['email'])  && isset($_POST['password'])) {
                 <div class="msg"><?php echo $msg ?></div>
             </form>
         </div>
-            <?php
-             if ($_SESSION['ROLE']!==1) { ?>
+            
+             
                
             <p class="linksignin">Dont Have an account yet? <a class="btnsignin" href="register.php">Sign Up</a></p>
-            <?php }?>
+            <p class="linksignin"> <a  href="resetpassword.php?<?php ?>">Forgot Password?</a></p>
+            
         </div>
     </div>
 

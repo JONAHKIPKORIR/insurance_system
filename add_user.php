@@ -3,7 +3,8 @@
 <?php
 
 require('top.inc.php ');
-$name='';
+$fname='';
+$lname='';
 $email='';
 $mobile='';
 $category_id='';
@@ -19,7 +20,8 @@ if (isset($_GET['id'])) {
     $res=mysqli_query($con,"SELECT * FROM users where id=$id");
     $row=mysqli_fetch_assoc($res);
     
-    $name=$row['name'];
+    $fname=$row['firstname'];
+    $lname=$row['lastname'];
     $email=$row['email'];
     $mobile=$row['mobile'];
     $category_id=$row['category_id'];
@@ -29,7 +31,8 @@ if (isset($_GET['id'])) {
 }
 
 if (isset($_POST['submit'])) {
-    $name=mysqli_real_escape_string($con,$_POST['name']);
+    $fname=mysqli_real_escape_string($con,$_POST['firstname']);
+    $lname=mysqli_real_escape_string($con,$_POST['lastname']);
     $email=mysqli_real_escape_string($con,$_POST['email']);
     $mobile=mysqli_real_escape_string($con,$_POST['mobile']);
     $category_id=mysqli_real_escape_string($con,$_POST['category_id']);
@@ -38,9 +41,9 @@ if (isset($_POST['submit'])) {
     $pass=mysqli_real_escape_string($con,$_POST['pass']);
     
     if ($id>0) {
-        $sql=mysqli_query($con,"update users set name='$name',email='$email', mobile='$mobile',category_id='$category_id',address='$address',birthday='$birthday', password='$pass' where id='$id' ");
+        $sql=mysqli_query($con,"update users set firstname='$fname',lastname='$lname',email='$email', mobile='$mobile',category_id='$category_id',address='$address',birthday='$birthday', password='$pass' where id='$id' ");
     }else{
-        $sql=mysqli_query($con,"insert into users(name,email,mobile,category_id,address,birthday,password,role) values('$name','$email','$mobile','$category_id','$address','$birthday','$pass','2')");
+        $sql=mysqli_query($con,"insert into users(firstname,lastname,email,mobile,category_id,address,birthday,password,role) values('$firstname','$lastname','$email','$mobile','$category_id','$address','$birthday','$pass','2')");
     }
     header('location:user.php');
     die();
@@ -61,11 +64,20 @@ if (isset($_POST['submit'])) {
         <div class="card-header"><strong> User </strong><small>Form</small></div>
         <div class="card-body">
             <form action="" method="post">
-            <div class="form-group">
+            <!--
+                <div class="form-group">
                 <label for="name" class="form-control-label"> Name</label>
                 <input type="text" name="name" value="<?php echo $name;   ?>" id="name" class="form-control" placeholder="Employee Name" required>
             </div>
-
+             -->
+             <div class="form-group">
+                    <label>First Name</label><br>
+                    <input type="name" name="firstname" value="<?php echo $fname;   ?>" class="form-control" placeholder="Firstname e.g Jonah" required>
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label><br>
+                    <input type="name" name="lastname" value="<?php echo $lname;   ?>" class="form-control" placeholder="Lastname e.g Kiplimo" required>
+                </div>
             <div class="form-group">
                 <label for="email" class="form-control-label">Email</label>
                 <input type="email" name="email" value="<?php echo $email;   ?>" id="email" class="form-control" placeholder="Email" required>

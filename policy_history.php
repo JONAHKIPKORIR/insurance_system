@@ -20,11 +20,11 @@ if (isset($_GET['type']) && $_GET['type']=='update' && isset($_GET['id'])) {
 
 //to select dat from db
 if ($_SESSION['ROLE']==1) {
-    $sql="SELECT policy_tbl.*,category.category,category.id, users.name,policy_type.policy_type,users.id as eid FROM policy_tbl,category,policy_type, users where `policy_tbl`.`policy_status`=1 or `policy_tbl`.`policy_status`=2 or `policy_tbl`.`policy_status`=3 and policy_tbl.user_id=users.id and policy_tbl.policy_type=policy_type.id and policy_tbl.category_id=category.id order by policy_tbl.id desc";
+    $sql="SELECT policy_tbl.*,category.category,category.id, users.firstname,policy_type.policy_type,users.id as eid FROM policy_tbl,category,policy_type, users where `policy_tbl`.`policy_status`=1 or `policy_tbl`.`policy_status`=2 or `policy_tbl`.`policy_status`=3 and policy_tbl.user_id=users.id /*and policy_tbl.policy_type=policy_type.id and policy_tbl.category_id=category.id */ order by policy_tbl.id desc";
     //$sql="SELECT * FROM policy_tbl order by id desc";
 }else {
     $eid=$_SESSION['USER_ID'];
-    $sql="SELECT policy_tbl.*,category.category,category.id, users.name,policy_type.policy_type,users.id as eid FROM policy_tbl,category,policy_type, users where (`policy_tbl`.`policy_status`=1 or `policy_tbl`.`policy_status`=2 or `policy_tbl`.`policy_status`=3  and `policy_tbl`.`user_id`=$eid )  and (policy_tbl.user_id='$eid' and policy_tbl.user_id=users.id) and policy_tbl.policy_type=policy_type.id and policy_tbl.category_id=category.id  order by policy_tbl.id desc";
+    $sql="SELECT policy_tbl.*,category.category,category.id, users.firstname,policy_type.policy_type,users.id as eid FROM policy_tbl,category,policy_type, users where (`policy_tbl`.`policy_status`=1 or `policy_tbl`.`policy_status`=2 or `policy_tbl`.`policy_status`=3 ) and `policy_tbl`.`user_id`=$eid and policy_tbl.user_id=users.id   /*and (policy_tbl.user_id='$eid' and policy_tbl.user_id=users.id) and policy_tbl.policy_type=policy_type.id and policy_tbl.category_id=category.id*/  order by policy_tbl.id desc";
 }
 $res=mysqli_query($con,$sql);
 
@@ -140,7 +140,7 @@ $res=mysqli_query($con,$sql);
                                         <tr>
                                             <td><?php echo $i  ?></td>
                                             <td><?php echo $row['id']  ?></td>
-                                            <td><?php echo $row['name'] . '('.$row['eid'].')' ?></td>
+                                            <td><?php echo $row['firstname'] . '('.$row['eid'].')' ?></td>
                                             <td><?php echo $row['category'] ?>l</td>
                                             <td><?php echo $row['policy_type']  ?></td>
                                             <td><?php echo $row['sum_assured']  ?></td>

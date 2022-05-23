@@ -2,7 +2,7 @@
 <?php
 
 require('top.inc.php');
-$name='';
+$firstname='';
 
 if (isset($_GET['type']) && $_GET['type']=='delete' && isset($_GET['id'])) {
     $id=mysqli_real_escape_string($con,$_GET['id']);
@@ -20,11 +20,11 @@ if (isset($_GET['type']) && $_GET['type']=='update' && isset($_GET['id'])) {
 
 //to select dat from db
 if ($_SESSION['ROLE']==1) {
-    $sql="SELECT policy_tbl.*, users.name,policy_type.policy_type,users.id as eid FROM policy_tbl,policy_type, users where policy_tbl.policy_status=1 and policy_tbl.user_id=users.id and policy_tbl.policy_type=policy_type.id  order by policy_tbl.id desc";
+    $sql="SELECT policy_tbl.*, users.firstname,users.lastname,policy_type.policy_type,users.id as eid FROM policy_tbl,policy_type, users where policy_tbl.policy_status=1 and policy_tbl.user_id=users.id and policy_tbl.policy_type=policy_type.id  order by policy_tbl.id desc";
     //$sql="SELECT * FROM policy_tbl order by id desc";
 }else {
     $eid=$_SESSION['USER_ID'];
-    $sql="SELECT policy_tbl.*, users.name,policy_type.policy_type,users.id as eid FROM policy_tbl,policy_type, users where policy_tbl.user_id='$eid' and policy_tbl.policy_status=1  and policy_tbl.user_id=users.id and policy_tbl.policy_type=policy_type.id order by policy_tbl.id desc";
+    $sql="SELECT policy_tbl.*, users.firstname,users.lastname,policy_type.policy_type,users.id as eid FROM policy_tbl,policy_type, users where policy_tbl.user_id='$eid' and policy_tbl.policy_status=1  and policy_tbl.user_id=users.id and policy_tbl.policy_type=policy_type.id order by policy_tbl.id desc";
 }
 $res=mysqli_query($con,$sql);
 
@@ -52,7 +52,8 @@ $res=mysqli_query($con,$sql);
                                     <tr>
                                             <th width="5%">#SNO</th>
                                             <th width="5%">ID </th>
-                                            <th width="20%">User Name(user_isd)<!--Insu Category Name(cat_id)--></th>
+                                            <th width="10%">User Name(user_isd)<!--Insu Category Name(cat_id)--></th>
+                                            <th width="10%">Last Name</th>
                                             <th width="10%">Policy Name(policy_id)</th>
                                             <th width="15%">Sum Assured</th>
                                             <th width="15%">Premium</th>
@@ -74,7 +75,8 @@ $res=mysqli_query($con,$sql);
                                         <tr>
                                             <td><?php echo $i  ?></td>
                                             <td><?php echo $row['id']  ?></td>
-                                            <td><?php echo $row['name'] . '('.$row['eid'].')' ?></td>
+                                            <td><?php echo $row['firstname'] . '('.$row['eid'].')' ?></td>
+                                            <td><?php echo $row['lastname']  ?></td>
                                             <td><?php echo $row['policy_type']  ?></td>
                                             <td><?php echo $row['sum_assured']  ?></td>
                                             

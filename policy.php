@@ -2,7 +2,7 @@
 <?php
 
 require('top.inc.php');
-$name='';
+$firstname='';
 
 
 if (isset($_GET['type']) && $_GET['type']=='delete' && isset($_GET['id'])) {
@@ -21,11 +21,11 @@ if (isset($_GET['type']) && $_GET['type']=='update' && isset($_GET['id'])) {
 
 //to select dat from db
 if ($_SESSION['ROLE']==1) {
-    $sql="SELECT policy_tbl.*, users.name,category.id,category.category,policy_type.policy_type,users.id  FROM policy_tbl,category,policy_type, users where  policy_tbl.user_id=users.id and policy_tbl.policy_type=policy_type.id  and policy_tbl.category_id=category.id order by policy_tbl.id desc";
+    $sql="SELECT policy_tbl.*, users.firstname,category.id,category.category,policy_type.policy_type,users.id  FROM policy_tbl,category,policy_type, users where  policy_tbl.user_id=users.id and policy_tbl.policy_type=policy_type.id  and policy_tbl.category_id=category.id order by policy_tbl.id desc";
     //$sql="SELECT * FROM policy_tbl order by id desc";
 }else {
     $eid=$_SESSION['USER_ID'];
-    $sql="SELECT policy_tbl.*, users.name,category.id,category.category,policy_type.policy_type,users.id  FROM policy_tbl,category,policy_type, users where ( policy_tbl.user_id=$eid )   and policy_tbl.user_id=users.id and policy_tbl.policy_type=policy_type.id and policy_tbl.category_id=category.id  order by policy_tbl.id desc";
+    $sql="SELECT policy_tbl.*, users.firstname,category.id,category.category,policy_type.policy_type,users.id  FROM policy_tbl,category,policy_type, users where ( policy_tbl.user_id=$eid )   and policy_tbl.user_id=users.id and policy_tbl.policy_type=policy_type.id and policy_tbl.category_id=category.id  order by policy_tbl.id desc";
 }
 $res=mysqli_query($con,$sql);
 
@@ -76,7 +76,7 @@ $res=mysqli_query($con,$sql);
                  //to select dat from db where policies are approved
                   $eid=$_SESSION['USER_ID'];
                     $num_rows=mysqli_query($con,"SELECT policy_tbl.*,users.id as eid FROM POLICY_TBL,users WHERE policy_status=2 and policy_tbl.user_id='$eid' and policy_tbl.user_id=users.id ");
-                    //$r=mysqli_query($con,'SELECT policy_tbl.*,category.category,users.name FROM policy_tbl,category,users  WHERE policy_tbl.user_id=users.id and policy_tbl.category_id=category.id and policy_status =2 ');
+                    //$r=mysqli_query($con,'SELECT policy_tbl.*,category.category,users.firstname FROM policy_tbl,category,users  WHERE policy_tbl.user_id=users.id and policy_tbl.category_id=category.id and policy_status =2 ');
                     $countapproved_policies=mysqli_num_rows($num_rows);
              }          
                   ?>
@@ -139,7 +139,8 @@ $res=mysqli_query($con,$sql);
                                     <?php
                                          //search functionality
                                          if (isset($_POST['search']) && !empty($_POST['search'])) {
-                                            $res=mysqli_query($con,"SELECT policy_tbl.*,users.id,users.name,category.category  FROM policy_tbl,users,category,policy_type  WHERE CONCAT(policy_tbl.policy_type,users.name)  LIKE '%$_POST[search]%'  AND policy_tbl.user_id=$_SESSION[USER_ID] ");
+                                             $eid=$_SESSION['USER_ID'];
+                                            $res=mysqli_query($con,"SELECT policy_tbl.*,users.id,users.firstname,category.category  FROM policy_tbl,users,category,policy_type  WHERE policy_tbl.user_id=$eid and CONCAT(policy_tbl.id, policy_tbl.policy_type,policy_tbl.category_id, policy_tbl.policy_type,users.firstname)  LIKE '%$_POST[search]%'  ");
                                             $count=mysqli_num_rows($res);
                                             if ($count== 0 && !empty($_POST['search'])) {?>
                                                 
@@ -163,7 +164,7 @@ $res=mysqli_query($con,$sql);
                                         <tr>
                                             <td><?php echo $i  ?></td>
                                             <td><?php echo $row['id']  ?></td>
-                                            <td><?php echo $row['name'] //. '('.$_row['USER_ID'].')' ?></td>
+                                            <td><?php echo $row['firstname'] //. '('.$_row['USER_ID'].')' ?></td>
                                             <td><?php echo $row['category'] ?></td>
                                             <td><?php echo $row['policy_type']  ?></td>
                                             <td><?php echo $row['sum_assured']  ?></td>
