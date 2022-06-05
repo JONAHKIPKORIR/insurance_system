@@ -157,8 +157,8 @@ $res=mysqli_query($con,'SELECT * FROM category order by id desc');
                                     <tr>
                                             <th width="10%" class="serial">#SNO</th>
                                             <th width="10%" class="jonah">ID</th>
-                                            <th width="60%">Category Name</th>
-                                            <th width="20%">Action</th>
+                                            <th width="30%">Category Name</th>
+                                            <th width="50%">Action</th>
 
                                     </tr>
                                     <?php  

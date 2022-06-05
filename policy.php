@@ -3,6 +3,12 @@
 
 require('top.inc.php');
 $firstname='';
+require 'db.inc.php';
+require 'Policies.php';
+
+$pObject=new Policies();
+$pObject->deletePolicyHistory(); 
+                              
 
 
 if (isset($_GET['type']) && $_GET['type']=='delete' && isset($_GET['id'])) {
@@ -21,7 +27,7 @@ if (isset($_GET['type']) && $_GET['type']=='update' && isset($_GET['id'])) {
 
 //to select dat from db
 if ($_SESSION['ROLE']==1) {
-    $sql="SELECT policy_tbl.*, users.firstname,category.id,category.category,policy_type.policy_type,users.id  FROM policy_tbl,category,policy_type, users where  policy_tbl.user_id=users.id and policy_tbl.policy_type=policy_type.id  and policy_tbl.category_id=category.id order by policy_tbl.id desc";
+    $sql="SELECT policy_tbl.*, users.firstname,category.id,category.category,policy_type.policy_type,users.id  FROM policy_tbl,category,policy_type, users where  policy_tbl.user_id=users.id and policy_tbl.policy_type=policy_type.id  and policy_tbl.category_id=category.id and policy_tbl.policy_status in(1,2,3) order by policy_tbl.id desc";
     //$sql="SELECT * FROM policy_tbl order by id desc";
 }else {
     $eid=$_SESSION['USER_ID'];
@@ -115,6 +121,10 @@ $res=mysqli_query($con,$sql);
             
                 <div class="table-heads">
                         <h3 class="table-title">Policy Applied By User</h3>
+                        <h4 class="table-link">
+                            <a href="Policy.php">Clear Policies </a>
+                        </h4>
+                        
                         <h4 class="table-link"><a href="add_policy.php">Apply New Policy</a></h4>
                 </div>
 

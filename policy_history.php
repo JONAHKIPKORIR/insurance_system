@@ -3,6 +3,10 @@
 
 require('top.inc.php');
 $name='';
+require 'Policies.php';
+
+$pObject=new Policies();
+$pObject->deletePolicyHistory(); 
 
 if (isset($_GET['type']) && $_GET['type']=='delete' && isset($_GET['id'])) {
     $id=mysqli_real_escape_string($con,$_GET['id']);
@@ -107,7 +111,8 @@ $res=mysqli_query($con,$sql);
 </section>
             
                 <div class="table-heads">
-                        <h3 class="table-title">History of Policy Applied by <?php echo "[".$_SESSION['USERNAME']."]"; ?></h3>
+                        <h3 class="table-title">History of Policy Applied  <?php// echo "[".$_SESSION['USERNAME']."]"; ?></h3>
+                        <h4 class="table-link"><a href="Policies.php">Clear Policy History</a></h4>
                         <h4 class="table-link"><a href="add_policy.php">Apply New Policy</a></h4>
                 </div>
 

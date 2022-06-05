@@ -23,7 +23,7 @@ $res=mysqli_query($con,'SELECT * FROM users where  role=2 order by id desc');
 
                 
                     <div class="table-heads">
-                        <h3 class="table-title">User(s)</h3>
+                        <h3 class="table-title">User(s) Registered in the System</h3>
                         <h4 class="table-link"><a href="add_user.php">Add User</a></h4>
                     </div>
 
